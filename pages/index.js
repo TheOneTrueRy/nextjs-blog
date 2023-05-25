@@ -13,14 +13,30 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p className={utilStyles.padding6px}>Hey, I'm Ry. I'm a full-stack web developer making a little blog site through Next.js to grasp a better understanding of React and the Next framework.</p>
+        <p className={utilStyles.padding6px}>
+          Hey, I'm Ry. I'm a full-stack web developer making a little blog site through Next.js to grasp a better understanding of React and the Next framework.
+        </p>
+      </section>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding6px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   );
