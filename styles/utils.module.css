@@ -37,6 +37,10 @@
   padding-top: 1px;
 }
 
+.padding6px {
+  padding-top: 6px;
+}
+
 .list {
   list-style: none;
   padding: 0;
